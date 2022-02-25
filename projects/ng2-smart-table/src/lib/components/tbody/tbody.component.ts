@@ -35,11 +35,12 @@ export class Ng2SmartTableTbodyComponent {
   editInputClass: string;
   isActionAdd: boolean;
   isActionEdit: boolean;
+  isActionPaste: boolean;
   isActionDelete: boolean;
   noDataMessage: boolean;
 
   get tableColumnsCount() {
-    const actionColumns = this.isActionAdd || this.isActionEdit || this.isActionDelete ? 1 : 0;
+    const actionColumns = this.isActionAdd || this.isActionEdit || this.isActionDelete || this.isActionPaste ? 1 : 0;
     return this.grid.getColumns().length + actionColumns;
   }
 
@@ -51,6 +52,7 @@ export class Ng2SmartTableTbodyComponent {
     this.showActionColumnRight = this.grid.showActionColumn('right');
     this.isActionAdd = this.grid.getSetting('actions.add');
     this.isActionEdit = this.grid.getSetting('actions.edit');
+    this.isActionPaste = this.grid.getSetting('actions.paste');
     this.isActionDelete = this.grid.getSetting('actions.delete');
     this.noDataMessage = this.grid.getSetting('noDataMessage');
   }
