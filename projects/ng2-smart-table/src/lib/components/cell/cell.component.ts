@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 
 import { Grid } from '../../lib/grid';
 import { Cell } from '../../lib/data-set/cell';
@@ -35,4 +35,5 @@ export class CellComponent {
       this.grid.save(this.row, this.editConfirm);
     }
   }
+
 }

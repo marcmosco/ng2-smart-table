@@ -4,6 +4,7 @@ import { Column } from './column';
 export class DataSet {
 
   newRow: Row;
+  rowToPaste: Row;
 
   protected data: Array<any> = [];
   protected columns: Array<Column> = [];

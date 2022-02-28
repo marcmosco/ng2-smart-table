@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { DefaultEditor } from './default-editor';
 
@@ -17,9 +17,11 @@ import { DefaultEditor } from './default-editor';
            (keydown.esc)="onStopEditing.emit()">
     `,
 })
-export class InputEditorComponent extends DefaultEditor {
+export class InputEditorComponent extends DefaultEditor{
 
   constructor() {
     super();
   }
+
+  
 }
