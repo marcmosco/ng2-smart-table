@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { DatePipe } from "@angular/common";
 import { ServerDataSource } from "ng2-smart-table";
-import { DataSource } from "../../../../../ng2-smart-table/src/lib/lib/data-source/data-source";
-import { Deferred } from "../../../../../ng2-smart-table/src/lib/lib/helpers";
 
 @Component({
   selector: "app-test-marco",
@@ -46,6 +44,12 @@ export class TestMarcoComponent implements OnInit {
       CEVENTO: {
         title: "Evento",
         editable: true,
+        filter: {
+          config: {
+            delay: 500,
+          },
+        },
+        width: "90px",
       },
       SDESCR: {
         title: "Descrizione",
@@ -53,6 +57,18 @@ export class TestMarcoComponent implements OnInit {
       },
       CCHIUSU: {
         title: "Codice",
+        editor: {
+          type: "completer",
+          config: {
+            completer: {
+              completer: {
+                titleField: "value",
+                remote: true,
+                url: "http://localhost:3020/getTipologiche",
+              },
+            },
+          },
+        },
       },
 
       DINIVAL: {
@@ -114,7 +130,7 @@ export class TestMarcoComponent implements OnInit {
     console.log(
       `Custom event '${event.action}' fired on row №: ${event.data.id}`
     );
-    
+
     event.source.append(event.data);
   }
 
