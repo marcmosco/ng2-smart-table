@@ -161,9 +161,15 @@ export class Grid {
         if (deferred.resolve.skipEdit) {
           row.isInEditing = false;
         } else {
-          this.source.update(row.getData(), newData).then(() => {
-            row.isInEditing = false;
-          });
+          if (this.getSetting("edit.onlyFE")) {
+            this.source.updateOnlyFE(row.getData(), newData).then(() => {
+              row.isInEditing = false;
+            });
+          } else {
+            this.source.update(row.getData(), newData).then(() => {
+              row.isInEditing = false;
+            });
+          }
         }
       })
       .catch((err) => {

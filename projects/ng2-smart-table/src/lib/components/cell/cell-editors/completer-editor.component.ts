@@ -30,6 +30,7 @@ export class CompleterEditorComponent extends DefaultEditor implements OnInit {
   }
 
   ngOnInit() {
+    this.completerStr = this.cell.getValue();
     if (
       this.cell.getColumn().editor &&
       this.cell.getColumn().editor.type === "completer"
@@ -38,7 +39,7 @@ export class CompleterEditorComponent extends DefaultEditor implements OnInit {
       if (config.remote && config.url) {
         config.dataService = this.completerService.remote(
           config.url,
-          config.searchFields,
+          null,
           config.titleField
         );
       } else {

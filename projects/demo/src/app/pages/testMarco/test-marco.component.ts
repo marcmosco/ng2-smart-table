@@ -44,6 +44,17 @@ export class TestMarcoComponent implements OnInit {
       CEVENTO: {
         title: "Evento",
         editable: true,
+        editor: {
+          type: "completer",
+          config: {
+            completer: {
+              titleField: "codice",
+              descriptionField: "descrizioneCompleta",
+              remote: true,
+              url: "http://localhost:8090/dizionario/listaVociCoge?size=32&filter=",
+            },
+          },
+        },
         filter: {
           config: {
             delay: 500,
@@ -61,11 +72,10 @@ export class TestMarcoComponent implements OnInit {
           type: "completer",
           config: {
             completer: {
-              completer: {
-                titleField: "value",
-                remote: true,
-                url: "http://localhost:3020/getTipologiche",
-              },
+              titleField: "codice",
+              descriptionField: "descrizioneCompleta",
+              remote: true,
+              url: "http://localhost:8090/dizionario/listaVociCoge?size=32&filter=",
             },
           },
         },
