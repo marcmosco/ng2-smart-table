@@ -53,6 +53,7 @@
     "ng-packagr": "^12.2.7",
     "prettier": "2.5.1",
     "protractor": "~7.0.0",
+    "raw-loader": "^4.0.2",
     "standard-changelog": "^2.0.11",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
